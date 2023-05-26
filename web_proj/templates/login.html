@@ -1,0 +1,120 @@
+<html >
+
+<head>
+    <title>login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+        body {
+        background-image: url('log.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;}
+
+        html, body {
+        display: flex;
+        justify-content: center;
+        height: 100%;}
+
+        body,div,form,input,button,h1{
+        padding: 0;
+        margin: 0;
+        outline: none;
+        font-family: Roboto;
+        font-size: 16px;
+        color: #666;}
+
+        h1 {
+      padding: 20px 0;
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;}
+
+      .button{
+      font-size: 12px;}
+
+      hr {
+      color: #a9a9a9;
+      opacity: 0.6;}
+
+      .main{
+      max-width: 340px;
+      min-height: 350px;
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 10px;
+      border: solid 2px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+      background: #ebebeb; }
+
+      .data{
+      margin: 0 30px;}
+
+      input[type=text], input[type=password] {
+      width: calc(100% - 57px);
+      height: 36px;
+      margin: 13px 0 0 -5px;
+      padding-left: 10px;
+      border-radius: 0 5px 5px 0;
+      border: solid 1px #cbc9c9;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+      background: #fff; }
+
+      #name{
+      margin-bottom: 15px;}
+
+       #icon {
+      display: inline-block;
+      padding: 9.3px 15px;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+      background: #1c87c9;
+      color: #fff;
+      text-align: center;}
+
+      .button {
+      margin-top: 10px;
+      text-align: center;}
+
+       button {
+      width: 70%;
+      padding: 8px 0;
+      margin: 10px auto;
+      border-radius: 5px;
+      border: none;
+      background: #1c87c9;
+      font-size: 20px;
+      font-weight: 600;
+      A #fff;}
+
+      button:hover {
+      background: #26a9e0;}
+
+
+    </style>
+</head>
+<body>
+	<div class="main">
+    <h1>Hey User</h1>
+    <form action="login" method="post">
+        {% csrf_token%}
+        <hr>
+        <div class="data">
+            <label id="icon" for="name"><i class="fas fa-user"></i></label>
+            <input type="text" name="username" id="name" placeholder="Username" required/>
+			<label id="icon" for="name"><i class="fas fa-lock"></i></label>
+            <input type="password" name="password" id="name" placeholder="password" required/>
+		</div>
+		<hr>
+		<div class="button">
+<!--			<input type="checkbox" value="none" id="chek"   />-->
+<!--			<label for="chek" class="chek">I AM NOT A ROBOT</label>-->
+			<button type="submit">LOGIN</button>
+        </div>
+
+    </form>
+        {%for msg in messages%}
+        <h2 align="center">{{msg}}</h2>
+        {%endfor%}
+    </div>
+</body>
+</html>
